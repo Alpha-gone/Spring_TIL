@@ -1,4 +1,4 @@
-package com.example.ch2.etc;
+package com.example.ch2.dto;
 
 public class Car {
     private String color = "red";

@@ -1,4 +1,4 @@
-package com.example.ch2.etc;
+package com.example.ch2.dto;
 
 public class Person {
     private Car car = new Car();

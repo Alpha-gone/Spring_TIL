@@ -1,4 +1,4 @@
-package com.example.ch2.servlet;
+package com.example.ch2.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -22,7 +22,11 @@ public class PerformanceFilter implements Filter {
         chain.doFilter(request, response);
 
         // 3. 후처리 작업
-        System.out.print("["+((HttpServletRequest)request).getRequestURI()+"]");
+        HttpServletRequest req = (HttpServletRequest) request;
+        String referer = req.getHeader("referer");
+        String method = req.getMethod();
+
+        System.out.print("[" + referer + "]" + "->" + method + "[" + req.getRequestURI() +"]");
         System.out.println(" 소요시간="+(System.currentTimeMillis()-startTime)+"ms");
     }
 

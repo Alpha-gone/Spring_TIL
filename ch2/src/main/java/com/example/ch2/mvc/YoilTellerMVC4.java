@@ -1,4 +1,4 @@
-package com.example.ch2.controller;
+package com.example.ch2.mvc;
 
 import com.example.ch2.dto.MyDate;
 import org.springframework.stereotype.Controller;

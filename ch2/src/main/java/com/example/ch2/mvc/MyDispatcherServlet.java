@@ -3,10 +3,8 @@ package com.example.ch2.mvc;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
@@ -28,7 +26,7 @@ public class MyDispatcherServlet extends HttpServlet {
         String viewName = "";
 
         try {
-            Class clazz = Class.forName("com.example.ch2.controller.YoilTellerMVC");
+            Class clazz = Class.forName("com.example.ch2.mvc.YoilTellerMVC");
             Object obj = clazz.newInstance();
 
             // 1. main메서드의 정보를 얻는다.

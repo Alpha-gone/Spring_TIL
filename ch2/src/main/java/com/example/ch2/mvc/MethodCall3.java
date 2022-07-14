@@ -21,7 +21,7 @@ public class MethodCall3 {
         map.put("day", "1");
 
         Model model = null;
-        Class clazz = Class.forName("com.example.ch2.controller.YoilTellerMVC");
+        Class clazz = Class.forName("com.example.ch2.mvc.YoilTellerMVC");
         Object obj  = clazz.newInstance();
 
         // YoilTellerMVC.main(int year, int month, int day, Model model)

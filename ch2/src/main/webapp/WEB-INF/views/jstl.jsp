@@ -24,7 +24,7 @@
         ${status.count}. arr[${status.index}]=${elem}<BR>
     </c:forEach>
 </c:if>
-<c:if test="${param.msg != null}">
+<c:if test="${user.msg != null}">
     msg=${param.msg}
     msg=<c:out value="${param.msg}"/>
 </c:if>

@@ -1,41 +1,36 @@
-package com.example.ch2.controller;
+package com.example.ch2.mvc;
 
+import com.example.ch2.dto.MyDate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.Calendar;
 
 @Controller
-public class YoilTellerMVC2 {
+public class YoilTellerMVC5 {
     
     @ExceptionHandler(Exception.class)
     public String catcher(Exception exception){
         exception.printStackTrace();
         return "yoilError";
     }
-    @RequestMapping("/getYoilMVC2")
-    public String main(@RequestParam(required = true) int year,
-                       @RequestParam(required = true) int month,
-                       @RequestParam(required = true) int day,
+
+    @RequestMapping("/getYoilMVC5")
+    public String main(@ModelAttribute MyDate date,
                        Model model) throws IOException {
 
-        if(!isValid(year, month, day)){
+        if(!isValid(date)){
             return "yoilError";
         }
-
-        char yoil = getYoil(year, month, day);
-
-        model.addAttribute("year", year);
-        model.addAttribute("month", month);
-        model.addAttribute("day", day);
-        model.addAttribute("yoil", yoil);
-
         return "yoil";
+    }
+
+    private boolean isValid(MyDate date){
+        return isValid(date.getYear(), date.getMonth(), date.getDay());
     }
 
     private boolean isValid(int year, int month, int day) {
@@ -45,6 +40,9 @@ public class YoilTellerMVC2 {
         return (1<=month && month<=12) && (1<=day && day<=31);
     }
 
+    private @ModelAttribute("yoil") char getYoil(MyDate date){
+        return getYoil(date.getYear(), date.getMonth(), date.getDay());
+    }
 
     private char getYoil(int year, int month, int day) {
         Calendar cal = Calendar.getInstance();

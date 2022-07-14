@@ -1,17 +1,28 @@
-package com.example.ch2.controller;
+package com.example.ch2.mvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.Calendar;
 
 @Controller
-public class YoilTellerMVC {
-    @RequestMapping("/getYoilMVC")
-    public String main(int year, int month, int day, Model model) throws IOException {
+public class YoilTellerMVC2 {
+    
+    @ExceptionHandler(Exception.class)
+    public String catcher(Exception exception){
+        exception.printStackTrace();
+        return "yoilError";
+    }
+    @RequestMapping("/getYoilMVC2")
+    public String main(@RequestParam(required = true) int year,
+                       @RequestParam(required = true) int month,
+                       @RequestParam(required = true) int day,
+                       Model model) throws IOException {
 
         if(!isValid(year, month, day)){
             return "yoilError";

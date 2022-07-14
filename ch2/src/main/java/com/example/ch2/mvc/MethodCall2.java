@@ -13,7 +13,7 @@ import org.springframework.validation.support.BindingAwareModelMap;
 public class MethodCall2 {
     public static void main(String[] args) throws Exception{
 
-        Class clazz = Class.forName("com.example.ch2.controller.YoilTellerMVC");
+        Class clazz = Class.forName("com.example.ch2.mvc.YoilTellerMVC");
         Object obj = clazz.newInstance();
 
         Method main = clazz.getDeclaredMethod("main", int.class, int.class, int.class, Model.class);

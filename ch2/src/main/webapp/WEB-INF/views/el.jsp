@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.example.ch2.etc.*" %>
+<%@ page import="com.example.ch2.dto.Person" %>
 
 <%
     Person person = new Person();

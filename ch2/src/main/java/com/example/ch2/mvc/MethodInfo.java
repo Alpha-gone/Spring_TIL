@@ -1,14 +1,12 @@
 package com.example.ch2.mvc;
 
-import com.example.ch2.controller.YoilTeller;
-
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.StringJoiner;
 
 public class MethodInfo {
     public static void main(String[] args) throws Exception {
-        Class clazz = Class.forName("com.example.ch2.controller.YoilTellerMVC");
+        Class clazz = Class.forName("com.example.ch2.mvc.YoilTellerMVC");
         Object obj = clazz.getDeclaredConstructor().newInstance();
 
         Method[] methodArr = clazz.getDeclaredMethods();
