@@ -1,0 +1,2 @@
+car=com.example.ch3.diCopy2.Truck
+engine=com.example.ch3.diCopy2.Engine
